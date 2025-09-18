@@ -27,3 +27,5 @@ while numero_actual <= cantidad:
         print(f"{numero_actual} x {i} = {numero_actual * i}")
 
     numero_actual += 1
+print("\n¡Gracias por usar el generador de tablas de multiplicar!")
+

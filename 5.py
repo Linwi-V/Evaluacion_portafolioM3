@@ -1,18 +1,24 @@
 def mostrar_contactos(agenda):
+    if not agenda:
+        print("\nLa agenda está vacía.\n")
+        return
     print("\nAgenda de Contactos:")
     for nombre, info in agenda.items():
         print(f"{nombre}: Teléfono - {info['telefono']}, Email - {info['email']}")
     print()
 
 def agregar_contacto(agenda):
-    nombre = input("Nombre del contacto: ")
-    telefono = input("Teléfono: ")
-    email = input("Email: ")
+    nombre = input("Nombre del contacto: ").strip()
+    if nombre in agenda:
+        print("Este contacto ya existe.\n")
+        return
+    telefono = input("Teléfono: ").strip()
+    email = input("Email: ").strip()
     agenda[nombre] = {"telefono": telefono, "email": email}
     print("Contacto agregado exitosamente.\n")
 
 def buscar_contacto(agenda):
-    nombre = input("Nombre a buscar: ")
+    nombre = input("Nombre a buscar: ").strip()
     if nombre in agenda:
         contacto = agenda[nombre]
         print(f"{nombre}: Teléfono - {contacto['telefono']}, Email - {contacto['email']}\n")
@@ -26,7 +32,7 @@ def menu_agenda():
         print("2. Ver todos los contactos")
         print("3. Buscar contacto")
         print("4. Salir")
-        opcion = input("Selecciona una opción: ")
+        opcion = input("Selecciona una opción: ").strip()
 
         if opcion == "1":
             agregar_contacto(agenda)
@@ -42,3 +48,4 @@ def menu_agenda():
 
 if __name__ == "__main__":
     menu_agenda()
+

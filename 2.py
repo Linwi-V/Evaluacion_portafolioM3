@@ -1,7 +1,17 @@
 def solicitar_datos():
     nombre = input("Ingresa tu nombre: ")
-    edad = int(input("Ingresa tu edad: "))
-    altura = float(input("Ingresa tu altura en metros: "))
+    while True:
+        try:
+            edad = int(input("Ingresa tu edad: "))
+            break
+        except ValueError:
+            print("Por favor, ingresa un número entero para la edad.")
+    while True:
+        try:
+            altura = float(input("Ingresa tu altura en metros: "))
+            break
+        except ValueError:
+            print("Por favor, ingresa un número válido para la altura.")
     instrumento = input("¿Tocas algún instrumento? (si/no): ").strip().lower() == 'si'
     return nombre, edad, altura, instrumento
 
